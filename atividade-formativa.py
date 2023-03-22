@@ -1,5 +1,8 @@
 dataBase = []
 
+opc_invalida = 'Opção inválida!'
+dado_invalido = 'Dado inválido!'
+
 
 def deletaAluno():  # Deleta aluno do dataBase
     quant_alunos = len(dataBase)
@@ -19,9 +22,9 @@ def deletaAluno():  # Deleta aluno do dataBase
                 if 0 <= aluno_deletar <= i:
                     break
                 else:
-                    print('Opção inválida!')
+                    print(opc_invalida)
             except ValueError:
-                print('Dado inválido!')
+                print(dado_invalido)
         while True:
             try:
                 nome_aluno_deletar = dataBase[aluno_deletar - 1]['nome']
@@ -59,9 +62,9 @@ def atualizaAluno():  # Atualiza nome e idade de um aluno!
                     idade_a_ser_atualizada = dataBase[aluno_atualizar - 1]['idade']
                     break
                 else:
-                    print('Opção inválida!')
+                    print(opc_invalida)
             except ValueError:
-                print('Dado inválido!')
+                print(dado_invalido)
         while True:  # Valida opcao que vai ser atualizada
             try:
                 print('Qual dado você quer atualizar?')
@@ -71,9 +74,9 @@ def atualizaAluno():  # Atualiza nome e idade de um aluno!
                     dado_a_ser_atualizado = nome_a_ser_atualizado if dado_atualizar == 1 else idade_a_ser_atualizada
                     break
                 else:
-                    print('Opção inválida!')
+                    print(opc_invalida)
             except ValueError:
-                print('Dado inválido!')
+                print(dado_invalido)
             # Cofirmação de atualização
         if dado_atualizar == 1:
             while True:
@@ -85,7 +88,7 @@ def atualizaAluno():  # Atualiza nome e idade de um aluno!
                     label = 'nome'
                     break
                 else:
-                    print('Dado inválido!')
+                    print(dado_invalido)
         elif dado_atualizar == 2:
             while True:
                 try:
@@ -96,9 +99,9 @@ def atualizaAluno():  # Atualiza nome e idade de um aluno!
                         label = 'idade'
                         break
                     else:
-                        print('Idade inválida!')
+                        print(opc_invalida)
                 except ValueError:
-                    print('Dado inválido!')
+                    print(dado_invalido)
         while True:  # Pede confirmação de atualizacao e atualiza ou não dado
             try:
                 print(
@@ -115,9 +118,9 @@ def atualizaAluno():  # Atualiza nome e idade de um aluno!
                         'Entendido! Caso queira alterar mais tarde basta retornar nesse menu :)')
                     break
                 else:
-                    print('Opção inválida!')
+                    print(opc_invalida)
             except ValueError:
-                print('Dado inválido!')
+                print(dado_invalido)
 
 
 def cadastraAluno():  # Função para cadastrar aluno
@@ -132,7 +135,7 @@ def cadastraAluno():  # Função para cadastrar aluno
                 print(
                     'Ops! Parece que você não digitou o sobrenome, por gentileza digite nome e sobrenome do aluno!')
         except ValueError:
-            print('Dado inválido!')
+            print(dado_invalido)
     while True:  # Valida idade
         try:
             idade = int(input('Digite a idade do aluno: '))
@@ -141,7 +144,7 @@ def cadastraAluno():  # Função para cadastrar aluno
             else:
                 print('Idade inválida')
         except ValueError:
-            print('Dado inválido!')
+            print(dado_invalido)
 
     dataBase.append({'nome': nome, 'idade': idade})
     print(f'O usuário {nome} foi cadastrado com sucesso!')
@@ -179,9 +182,9 @@ def menuGeral():  # Apresenta opções
                 deletaAluno()
                 break
             else:
-                print('Opção inválida, digite novamente: ')
+                print(opc_invalida)
         except ValueError:
-            print('Dado inválido, digite novamente: ')
+            print(dado_invalido)
 
 
 def verMais():  # Apresenta menu geral e ver mais
@@ -196,9 +199,9 @@ def verMais():  # Apresenta menu geral e ver mais
                 print('Até a próxima!')
                 break
             else:
-                print('Opção inválida, digite novamente.')
+                print(opc_invalida)
         except ValueError:
-            print('Opção inválida, digite novamente.')
+            print(dado_invalido)
 
 
 print('Olá seja bem vindo ao meu código!')
